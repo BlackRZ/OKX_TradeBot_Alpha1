@@ -190,7 +190,7 @@ def execute_trade():
                 # 已有多头持仓需要先平仓
                 if current_side == 'long':
                     print(f"平多头仓位（数量：{current_size}）")
-                close_order = trade_api.place_order(
+                    close_order = trade_api.place_order(
                     instId=symbol,
                     tdMode='cross',
                     side='sell',  # 平多方向为卖出
@@ -198,7 +198,7 @@ def execute_trade():
                     ordType='market',
                     sz=str(current_size)  # 平全部多仓
                 )
-                print("平仓结果:", close_order)
+                    print("平仓结果:", close_order)
 
                 # 开空头仓位（只有无持仓或已平仓后操作）
                 if current_side != 'long':
